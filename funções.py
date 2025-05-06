@@ -31,6 +31,25 @@ def criar_treino():
                         linha = f'Data: {lista_datas[i]} Tipo: {lista_tipos[i]} Duração: {lista_duração[i]} Exercícios: {lista_movimentos[i]}'
                         arquivo.write(linha)
                         arquivo.close()
+        print(f'Treino do dia {lista_datas[i]} adicionado com sucesso!')
+
+def excluir_treino():
+        
+        
+def visualizar_treino():
+        
+    
+def editar_treino():
+        
+def filtrar_treino():
+
+def adicionar_meta():
+        
+def sugestao_treino():
+
+def analise_treino():
+        
+
 
 
 
