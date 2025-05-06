@@ -1,1 +1,1 @@
-print("WOD Tracker\n")
+menu_principal()
