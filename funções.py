@@ -1,2 +1,11 @@
-def treino(a,b,c):
-    return pitoca
+def menu_principal():    
+        print("---WOD Tracker---")
+        print("1. Criar treino")
+        print("2. Excluir treino")
+        print("3. Vizualizar treinos")
+        print("4. Editar treino")
+        print("5. Filtrar treinos")
+        print("6. Adicionar metas")
+        print("7. Sugestões de treino aleatórias")
+        print("8. Análise de treino")
+        print("9. Sair")
