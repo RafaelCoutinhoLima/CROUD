@@ -7,7 +7,7 @@ def menu_principal():
         print("---WOD Tracker---")
         print("1. Criar treino")
         print("2. Excluir treino")
-        print("3. Vizualizar treinos")
+        print("3. Visualizar treinos")
         print("4. Editar treino")
         print("5. Filtrar treinos")
         print("6. Adicionar metas")
@@ -26,9 +26,9 @@ def criar_treino():
         lista_duração.append(duração)
         lista_movimentos.append(movimentos)
 
-        with open('treinos.txt', 'w', encoding='utf-8') as arquivo:
+        with open('treinos.txt', 'a', encoding='utf-8') as arquivo:
                 for i in range(len(lista_datas)):
-                        linha = f'Data: {lista_datas[i]} Tipo: {lista_tipos[i]} Duração: {lista_duração[i]} Exercícios: {lista_movimentos[i]}'
+                        linha = f'Data: {lista_datas[i]} Tipo: {lista_tipos[i]} Duração: {lista_duração[i]} Exercícios: {lista_movimentos[i]}\n'
                         arquivo.write(linha)
         arquivo.close()
         print(f'Treino do dia {lista_datas[i]} adicionado com sucesso!')
@@ -44,7 +44,7 @@ def excluir_treino():
                 lista_tipos.pop(escolha)
                 lista_duração.pop(escolha)
                 lista_movimentos.pop(escolha)
-                print(f'Treino do dia {lista_datas[escolha]} excluído com sucesso!')
+        print(f'Treino do dia {lista_datas[escolha]} excluído com sucesso!')
 
         
 def visualizar_treino():

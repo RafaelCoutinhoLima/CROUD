@@ -3,7 +3,8 @@ import funções
 while True:
     funções.menu_principal()
     escolha = int(input('Digite o que você deseja fazer (1-9): '))
-    
+    if escolha<1 or escolha>9:
+        print('Escolha inválida! Digite um número de 1-9.')
     if escolha == 1:
         funções.criar_treino()
     if escolha == 2:
