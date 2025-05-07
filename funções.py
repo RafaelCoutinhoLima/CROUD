@@ -34,20 +34,29 @@ def criar_treino():
         print(f'Treino do dia {lista_datas[i]} adicionado com sucesso!')
 
 def excluir_treino():
-        if not lista_datas:
-                print('Não existem treinos cadastrados.')
-                return
+        with open('treinos.txt', 'r', encoding='utf-8') as arquivo:
+            treinos = arquivo.readlines()
+        
+        if not treinos:
+            print('Não existem treinos cadastrados.')
+            return
+        
         visualizar_treino()
         escolha = int(input('Digite o número do treino que você quer excluir: '))
-        if escolha > 0 and escolha < len(lista_datas):
+        if 1 <= escolha <= len(treinos):
                 indice = escolha - 1
-                lista_datas.pop(indice)
-                lista_tipos.pop(indice)
-                lista_duração.pop(indice)
-                lista_movimentos.pop(indice)
-        print(f'Treino do dia {lista_datas[indice] - 1} excluído com sucesso!')
+                linha_excluida = treinos[indice]
+                try:
+                    data_excluida = linha_excluida.split(' Tipo: ')[0].replace('Data: ', '').strip()
+                except IndexError:
+                    data_excluida = "desconhecida"
+                
+                treinos.pop(indice)
+                with open('treinos.txt', 'w', encoding='utf-8') as arquivo:
+                    arquivo.writelines(treinos)
+                
+                print(f'Treino do dia {data_excluida} excluído com sucesso!')
 
-        
 def visualizar_treino():
         with open('treinos.txt', 'r', encoding='utf-8') as arquivo:     
                 treinos = arquivo.readlines()
