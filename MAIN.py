@@ -1,4 +1,6 @@
 import funções
+import os
+os.system('cls')
 
 while True:
     funções.menu_principal()

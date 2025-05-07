@@ -40,23 +40,24 @@ def excluir_treino():
         visualizar_treino()
         escolha = int(input('Digite o número do treino que você quer excluir: '))
         if escolha > 0 and escolha < len(lista_datas):
-                lista_datas.pop(escolha)
-                lista_tipos.pop(escolha)
-                lista_duração.pop(escolha)
-                lista_movimentos.pop(escolha)
-        print(f'Treino do dia {lista_datas[escolha]} excluído com sucesso!')
+                indice = escolha - 1
+                lista_datas.pop(indice)
+                lista_tipos.pop(indice)
+                lista_duração.pop(indice)
+                lista_movimentos.pop(indice)
+        print(f'Treino do dia {lista_datas[indice] - 1} excluído com sucesso!')
 
         
 def visualizar_treino():
-        if not lista_datas:
-                print('Não existem treinos cadastrados.')
-                return
-        for i in range(len(lista_datas)):
-                print(f'\nTreino {i+1}:')
-                print(f'\nData do treino: {lista_datas[i]}')
-                print(f'\nTipo do treino: {lista_tipos[i]}')
-                print(f'\nDuração do treino (em minutos): {lista_duração[i]}')
-                print(f'\nExercícios realizados no treino: {lista_movimentos[i]}')
+        with open('treinos.txt', 'r', encoding='utf-8') as arquivo:     
+                treinos = arquivo.readlines()
+
+                if not treinos:
+                        print('Não existem treinos cadastrados.')
+                        return
+                for i in range(len(treinos)):
+                        print(f'{i+1}.{treinos[i]}')
+                arquivo.close()
     
 def editar_treino():
         return
@@ -68,7 +69,3 @@ def sugestao_treino():
         return
 def analise_treino():
         return
-
-
-
-
