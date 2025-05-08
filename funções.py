@@ -69,12 +69,6 @@ def visualizar_treino():
                 arquivo.close()
     
 def editar_treino():
-        with open('treinos.txt','r',encoding='utf8') as arquivo:
-               linhas=arquivo.readlines(arquivo)
-               if len(linhas)==0:
-                      print('treino inexistente!!')
-        escolha=input('Qual treino você deseja alterar')
-        
         return
 def filtrar_treino():
         return
