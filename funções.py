@@ -69,7 +69,19 @@ def visualizar_treino():
                 arquivo.close()
     
 def editar_treino():
-        return
+        with open('treinos.txt', 'r', encoding='utf-8') as arquivo:
+            treinos = arquivo.readlines()
+        
+        if not treinos:
+            print('Não existem treinos cadastrados.')
+            return
+        visualizar_treino()
+        escolha = int(input('Digite o número do treino que você quer editar: '))
+        if 1 <= escolha <= len(treinos):
+                indice = escolha - 1
+                treino_excluido = treinos[indice]
+                
+
 def filtrar_treino():
         return
 def adicionar_meta():
