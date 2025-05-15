@@ -1,0 +1,2 @@
+Data: 10/10/1010 | Tipo: AMRAP2 | Duração: 10 minutos | Exercícios: teste1
+Data: 02/02/0002 | Tipo: EMOM | Duração: 2 minutos | Exercícios: teste2
