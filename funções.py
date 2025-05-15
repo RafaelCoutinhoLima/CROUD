@@ -167,7 +167,16 @@ def ler_metas():
     except FileNotFoundError:
         print('Arquivo inexistente!')    
 def sugestao_treino():
-        
-        return
+        import random
+        tipos = ["AMRAP", "EMOM", "For Time"]
+        movimentos=["push-up", "pull-up", "burpee", "thruster", "clean", "snatch", "air squat", "deadlift"]
+        tipo=random.choice(tipos)
+        tempo_duração=random.randint(10,60)
+        sugestão_movimento=random.sample(movimentos,4)
+        print(f'\n{20*'-'}TREINO ALEATORIO GERADO!!{20*'-'}\n')
+        print(f'Tipo:{tipo}')
+        print(f'Duração:{tempo_duração} minutos') 
+        print('movimentos:',end=' ')
+        print(*sugestão_movimento,sep=',')       
 def analise_de_desempenho():
         return

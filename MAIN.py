@@ -6,10 +6,10 @@ funções.carregar_treinos()
 while True:
     try:
         funções.menu_principal()
-        escolha = int(input('Digite o que você deseja fazer (1-9): '))
+        escolha = int(input('Digite o que você deseja fazer (1-10): '))
         
-        if escolha < 1 or escolha > 9:
-            print('Escolha inválida! Digite um número de 1 a 9.')
+        if escolha < 1 or escolha > 10:
+            print('Escolha inválida! Digite um número de 1 a 10.')
             continue
         
         if escolha == 1:
@@ -33,7 +33,7 @@ while True:
         elif escolha == 10:
             break
     except ValueError:
-        print('Digite um número válido (1-9): ')
+        print('Digite um número válido (1-10): ')
 
 
 
