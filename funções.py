@@ -38,9 +38,10 @@ def menu_principal():
         print("4. Editar treino")
         print("5. Filtrar treinos")
         print("6. Adicionar metas")
-        print("7. Sugestões de treino aleatórias")
-        print("8. Análise de desempenho")
-        print("9. Sair")
+        print("7.Ler metas")
+        print("8. Sugestões de treino aleatórias")
+        print("9. Análise de desempenho")
+        print("10. Sair")
 
 def criar_treino():
         data = input('Digite a data data do treino (DD/MM/AA): ')
@@ -154,9 +155,19 @@ def editar_treino():
         print('Por favor, digite um número válido.')
 def filtrar_treino():
         return
-def adicionar_meta():
-        return
+def adicionar_meta(data, metas):
+    with open(f'Metas.txt','a') as file:
+        file.write(f'Data da meta: {data}; Meta:{metas}')
+        file.close()
+def ler_metas(): 
+    try:
+        with open('Metas.txt', 'r') as file:
+            conteudo=file.read()
+            print(conteudo)
+    except FileNotFoundError:
+        print('Arquivo inexistente!')    
 def sugestao_treino():
+        
         return
 def analise_de_desempenho():
         return

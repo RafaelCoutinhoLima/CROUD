@@ -25,10 +25,12 @@ while True:
         elif escolha == 6:
             funções.adicionar_meta()
         elif escolha == 7:
-            funções.sugestao_treino()
+            funções.ler_metas()
         elif escolha == 8:
-            funções.analise_de_desempenho()
+            funções.sugestao_treino()
         elif escolha == 9:
+            funções.analise_de_desempenho()
+        elif escolha == 10:
             break
     except ValueError:
         print('Digite um número válido (1-9): ')
