@@ -60,7 +60,6 @@ def excluir_treino():
 def visualizar_treino():
         with open('treinos.txt', 'r', encoding='utf-8') as arquivo:     
                 treinos = arquivo.readlines()
-
                 if not treinos:
                         print('Não existem treinos cadastrados.')
                         return
