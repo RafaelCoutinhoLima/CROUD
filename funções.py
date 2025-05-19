@@ -30,6 +30,7 @@ def carregar_treinos():
                     continue
     except FileNotFoundError:
         pass
+
 def menu_principal():    
         print("\n---WOD Tracker---\n")
         print(" 1. Criar treino")
@@ -42,6 +43,7 @@ def menu_principal():
         print(" 8. Sugestões de treino aleatórias")
         print(" 9. Análise de desempenho")
         print("10. Sair")
+
 def criar_treino():
         data = input('Digite a data data do treino (DD/MM/AA): ')
         tipo = input('Digite o tipo do treino (AMRAP, EMOM, For Time): ')
@@ -190,6 +192,7 @@ def filtrar_treino():
     else:
         print("Nenhum treino encontrado com esse critério.")
         return
+    
 def criar_meta():
     metas = input('Digite a meta: ')
     data = (input('Digite a data da meta: '))
@@ -209,25 +212,32 @@ def visualizar_metas():
                     print(f'\n{i+1}. {metas[i]}')
 
     except FileNotFoundError:
-        print('Arquivo inexistente!')    
+        print('Arquivo inexistente!') 
+   
 def sugestao_treino():
         import random
         tipos = ["AMRAP", "EMOM", "For Time"]
-        movimentos=["Push-up", "Pull-up", "Burpee", "Thruster", "Clean", "Snatch", "Air squat", "Deadlift"]
-        tipo=random.choice(tipos)
-        tempo_duração=random.randint(10,60)
-        sugestão_movimento=random.sample(movimentos,4)
+        movimentos = ["Push-up", "Pull-up", "Burpee", "Thruster", "Clean", "Snatch", "Air squat", "Deadlift"]
+        tipo = random.choice(tipos)
+        tempo_duração = random.randint(10,60)
+        sugestão_movimento = random.sample(movimentos,4)
         print(f'\n{20*'-'}Treino aleatório gerado.{20*'-'}\n')
         print(f'Tipo: {tipo}')
         print(f'Duração: {tempo_duração} minutos.') 
         print('Movimentos:',end=' ')
-        print(*sugestão_movimento,sep=', ')       
+        print(*sugestão_movimento,sep=', ')
+
 def analise_de_desempenho():
+    print(f'\n{'-' * 20} Painel de Análise de Desempenho {'-' * 20}')
     print(calcular_duracao_media())
+    print(exercicio_preferido())
+    print(treino_preferido())
+    print(f'{73 * '-'}')
+
 def calcular_duracao_media():
     try:
         if not lista_duração:
-            return "\nNenhum treino registrado para calcular a duração média."
+            return "Nenhum treino registrado para calcular a duração média."
         
         duracoes = []
         for duracao in lista_duração:
@@ -238,10 +248,27 @@ def calcular_duracao_media():
                 continue
         
         if not duracoes:
-            return "\nNenhuma duração válida encontrada nos treinos."
+            return "Nenhuma duração válida encontrada nos treinos."
         
         media = sum(duracoes) / len(duracoes)
-        return f"\nDuração média dos treinos: {media:.1f} minutos"
+        return f"Duração média dos treinos: {media:.1f} minutos"
     
     except Exception as e:
-        return f"\nErro ao calcular duração média: {e}"
+        return f"Erro ao calcular duração média: {e}"
+
+def exercicio_preferido():
+    try:
+        if not lista_movimentos:
+            return "Nenhum exercício registrado."
+        selecionado = max(lista_movimentos, key=lista_movimentos.count)
+        return selecionado
+    except Exception as e:
+        return f"Erro ao encontrar exercício preferido: {e}"
+
+def treino_preferido():
+    try:
+        if not lista_tipos:
+            return "Nenhum tipo de treino registrado."
+        return max(lista_tipos, key=lista_tipos.count)
+    except Exception as e:
+        return f"Erro ao encontrar tipo de treino preferido: {e}"

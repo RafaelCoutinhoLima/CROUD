@@ -1,5 +1,0 @@
-Data: 10/10/1010 | Tipo: AMRAP2 | Duração: 10 minutos | Exercícios: teste1
-Data: 02/02/0002 | Tipo: EMOM | Duração: 2 minutos | Exercícios: teste2
-Data: 03/04/2006 | Tipo: AMRAP | Duração: 60 minutos | Exercícios: Barra
-Data: 03/04/2006 | Tipo: EMOM | Duração: 60 minutos | Exercícios: teste
-Data: 03/04/2006 | Tipo: For Time | Duração: 60 minutos | Exercícios: teste
