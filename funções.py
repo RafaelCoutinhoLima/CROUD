@@ -190,7 +190,7 @@ def filtrar_treino():
     else:
         print("Nenhum treino encontrado com esse critério.")
         return
-def adicionar_meta():
+def criar_meta():
     metas = input('Digite a meta: ')
     data = (input('Digite a data da meta: '))
 
@@ -223,4 +223,25 @@ def sugestao_treino():
         print('Movimentos:',end=' ')
         print(*sugestão_movimento,sep=', ')       
 def analise_de_desempenho():
-        return
+    print(calcular_duracao_media())
+def calcular_duracao_media():
+    try:
+        if not lista_duração:
+            return "\nNenhum treino registrado para calcular a duração média."
+        
+        duracoes = []
+        for duracao in lista_duração:
+            try:
+                numero = float(duracao.replace("minutos", "").strip())
+                duracoes.append(numero)
+            except ValueError:
+                continue
+        
+        if not duracoes:
+            return "\nNenhuma duração válida encontrada nos treinos."
+        
+        media = sum(duracoes) / len(duracoes)
+        return f"\nDuração média dos treinos: {media:.1f} minutos"
+    
+    except Exception as e:
+        return f"\nErro ao calcular duração média: {e}"
