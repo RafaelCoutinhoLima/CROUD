@@ -25,7 +25,7 @@ while True:
         elif escolha == 6:
             funções.adicionar_meta()
         elif escolha == 7:
-            funções.ler_metas()
+            funções.visualizar_metas()
         elif escolha == 8:
             funções.sugestao_treino()
         elif escolha == 9:

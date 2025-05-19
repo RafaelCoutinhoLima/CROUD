@@ -32,17 +32,16 @@ def carregar_treinos():
         pass
 def menu_principal():    
         print("\n---WOD Tracker---\n")
-        print("1. Criar treino")
-        print("2. Excluir treino")
-        print("3. Visualizar treinos")
-        print("4. Editar treino")
-        print("5. Filtrar treinos")
-        print("6. Adicionar metas")
-        print("7.Ler metas")
-        print("8. Sugestões de treino aleatórias")
-        print("9. Análise de desempenho")
+        print(" 1. Criar treino")
+        print(" 2. Excluir treino")
+        print(" 3. Visualizar treinos")
+        print(" 4. Editar treino")
+        print(" 5. Filtrar treinos")
+        print(" 6. Adicionar metas")
+        print(" 7. Ler metas")
+        print(" 8. Sugestões de treino aleatórias")
+        print(" 9. Análise de desempenho")
         print("10. Sair")
-
 def criar_treino():
         data = input('Digite a data data do treino (DD/MM/AA): ')
         tipo = input('Digite o tipo do treino (AMRAP, EMOM, For Time): ')
@@ -58,7 +57,6 @@ def criar_treino():
                 linha = f'Data: {data} | Tipo: {tipo} | Duração: {duração} | Exercícios: {movimentos}\n'
                 arquivo.write(linha)
         print(f'Treino do dia {data} adicionado com sucesso!')
-
 def excluir_treino():
         with open('treinos.txt', 'r', encoding='utf-8') as arquivo:
             treinos = arquivo.readlines()
@@ -88,7 +86,6 @@ def excluir_treino():
                     arquivo.writelines(treinos)
                 
                 print(f'Treino do dia {data_excluida} excluído com sucesso!')
-
 def visualizar_treino():
         with open('treinos.txt', 'r', encoding='utf-8') as arquivo:     
                 treinos = arquivo.readlines()
@@ -96,7 +93,7 @@ def visualizar_treino():
                         print('Não existem treinos cadastrados.')
                         return
                 for i in range(len(treinos)):
-                        print(f'{i+1}.{treinos[i]}')
+                        print(f'{i+1}. {treinos[i]}')
 def editar_treino():
     with open('treinos.txt', 'r', encoding='utf-8') as arquivo:
         treinos = arquivo.readlines()
@@ -154,29 +151,76 @@ def editar_treino():
     except ValueError:
         print('Por favor, digite um número válido.')
 def filtrar_treino():
+    if not lista_datas:
+        print("Nenhum treino carregado. Use a opção de visualizar ou criar treinos primeiro.")
         return
-def adicionar_meta(data, metas):
-    with open(f'Metas.txt','a') as file:
-        file.write(f'Data da meta: {data}; Meta:{metas}')
-        file.close()
-def ler_metas(): 
+
+    print("\n--- Filtrar Treinos ---")
+    print("1. Por data")
+    print("2. Por tipo")
+    print("3. Por duração")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        data = input("Digite a data (DD/MM/AA): ").strip()
+        encontrados = [
+            (i, lista_datas[i], lista_tipos[i], lista_duração[i], lista_movimentos[i])
+            for i in range(len(lista_datas)) if lista_datas[i] == data
+        ]
+    elif opcao == "2":
+        tipo = input("Digite o tipo (AMRAP, EMOM, For Time): ").strip().lower()
+        encontrados = [
+            (i, lista_datas[i], lista_tipos[i], lista_duração[i], lista_movimentos[i])
+            for i in range(len(lista_tipos)) if lista_tipos[i].lower() == tipo
+        ]
+    elif opcao == "3":
+        duracao = input("Digite a duração exata (ex: 30 minutos): ").strip()
+        encontrados = [
+            (i, lista_datas[i], lista_tipos[i], lista_duração[i], lista_movimentos[i])
+            for i in range(len(lista_duração)) if lista_duração[i] == duracao
+        ]
+    else:
+        print("Opção inválida.")
+        return
+
+    if encontrados:
+        print("\nTreinos encontrados:")
+        for i, data, tipo, duracao, movimentos in encontrados:
+            print(f"{i+1}. Data: {data} | Tipo: {tipo} | Duração: {duracao} | Exercícios: {movimentos}")
+    else:
+        print("Nenhum treino encontrado com esse critério.")
+        return
+def adicionar_meta():
+    metas = input('Digite a meta: ')
+    data = (input('Digite a data da meta: '))
+
+    with open('metas.txt', 'a', encoding='utf-8') as arquivo:
+        linha = f'Data: {data} | Meta: {metas}'
+        arquivo.write(linha)
+    print(f'Meta para {data} adicionada com sucesso!')
+def visualizar_metas(): 
     try:
-        with open('Metas.txt', 'r') as file:
-            conteudo=file.read()
-            print(conteudo)
+        with open('metas.txt', 'r', encoding='utf-8') as arquivo:
+            metas = arquivo.readlines()
+            if not metas:
+                        print('Não existem metas cadastradas.')
+                        return
+            for i in range(len(metas)):
+                    print(f'\n{i+1}. {metas[i]}')
+
     except FileNotFoundError:
         print('Arquivo inexistente!')    
 def sugestao_treino():
         import random
         tipos = ["AMRAP", "EMOM", "For Time"]
-        movimentos=["push-up", "pull-up", "burpee", "thruster", "clean", "snatch", "air squat", "deadlift"]
+        movimentos=["Push-up", "Pull-up", "Burpee", "Thruster", "Clean", "Snatch", "Air squat", "Deadlift"]
         tipo=random.choice(tipos)
         tempo_duração=random.randint(10,60)
         sugestão_movimento=random.sample(movimentos,4)
-        print(f'\n{20*'-'}TREINO ALEATORIO GERADO!!{20*'-'}\n')
-        print(f'Tipo:{tipo}')
-        print(f'Duração:{tempo_duração} minutos') 
-        print('movimentos:',end=' ')
-        print(*sugestão_movimento,sep=',')       
+        print(f'\n{20*'-'}Treino aleatório gerado.{20*'-'}\n')
+        print(f'Tipo: {tipo}')
+        print(f'Duração: {tempo_duração} minutos.') 
+        print('Movimentos:',end=' ')
+        print(*sugestão_movimento,sep=', ')       
 def analise_de_desempenho():
         return
