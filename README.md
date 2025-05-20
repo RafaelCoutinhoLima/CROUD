@@ -9,22 +9,21 @@ WOD Tracker é uma aplicação em Python para registrar, visualizar e analisar t
 -Analisar desempenho com base nos treinos realizados
 
 ▶️ Como usar
-Certifique-se de ter o Python 3.10 ou superior instalado.
+Pré-requisitos
+Certifique-se de ter o Python 3.10 ou superior instalado em seu computador.
 
-Instale as dependências (caso exista um arquivo requirements.txt):
+Instale as dependências
+Caso exista o arquivo requirements.txt, execute o comando abaixo no terminal para instalar as dependências:
 
 bash
-Copiar
-Editar
 pip install -r requirements.txt
-Execute o script principal:
+Execute o programa
+Rode o script principal (normalmente chamado main.py):
 
 bash
-Copiar
-Editar
-python nome_do_arquivo.py
-Siga as instruções do menu para navegar entre as opções.
-
+python main.py
+Navegue pelo menu
+Siga as instruções do menu exibido no terminal para criar, visualizar ou editar treinos, registrar metas, obter sugestões de treinos e analisar seu desempenho.
 
 💡 Exemplo de uso
 text
