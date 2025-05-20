@@ -215,17 +215,17 @@ def visualizar_metas():
         print('Arquivo inexistente!') 
    
 def sugestao_treino():
-        import random
-        tipos = ["AMRAP", "EMOM", "For Time"]
-        movimentos = ["Push-up", "Pull-up", "Burpee", "Thruster", "Clean", "Snatch", "Air squat", "Deadlift"]
-        tipo = random.choice(tipos)
-        tempo_duração = random.randint(10,60)
-        sugestão_movimento = random.sample(movimentos,4)
-        print(f'\n{20*'-'}Treino aleatório gerado.{20*'-'}\n')
-        print(f'Tipo: {tipo}')
-        print(f'Duração: {tempo_duração} minutos.') 
-        print('Movimentos:',end=' ')
-        print(*sugestão_movimento,sep=', ')
+    import random
+    tipos = ["AMRAP", "EMOM", "For Time"]
+    movimentos = ["Push-up", "Pull-up", "Burpee", "Thruster", "Clean", "Snatch", "Air squat", "Deadlift"]
+    tipo = random.choice(tipos)
+    tempo_duração = random.randint(10, 60)
+    sugestão_movimento = random.sample(movimentos, 4)
+    print(f"\n{20*'-'}Treino aleatório gerado.{20*'-'}\n")
+    print(f'Tipo: {tipo}')
+    print(f'Duração: {tempo_duração} minutos.') 
+    print('Movimentos:', end=' ')
+    print(*sugestão_movimento, sep=', ')
 
 def analise_de_desempenho():
     print(f'\n{'-' * 20} Painel de Análise de Desempenho {'-' * 20}')
