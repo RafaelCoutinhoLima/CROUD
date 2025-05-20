@@ -53,7 +53,6 @@ Treino do dia 20/05/25 adicionado com sucesso!
 
 
 💼 Estrutura de Arquivos
-WOD-Tracker/
 -main.py               # Script principal com o menu e chamadas de funções
 
 -funções.py            # Lógica das funcionalidades do programa
