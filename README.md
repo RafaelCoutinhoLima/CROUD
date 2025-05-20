@@ -13,7 +13,7 @@ Gerar sugestões aleatórias de treinos
 Analisar desempenho com base nos treinos realizados
 
 ▶️ Como usar
-Certifique-se de ter Python 3 instalado.
+Certifique-se de ter Python 3.10 ou superior
 
 Execute o script principal:
 
