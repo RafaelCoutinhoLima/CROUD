@@ -54,11 +54,15 @@ Treino do dia 20/05/25 adicionado com sucesso!
 
 💼 Estrutura de Arquivos
 WOD-Tracker/
-main.py               # Script principal com o menu e chamadas de funções
-funções.py            # Lógica das funcionalidades do programa
-treinos.txt           # Armazena os treinos cadastrados
-metas.txt             # Armazena as metas inseridas
-README.md             # Documentação do projeto
+-main.py               # Script principal com o menu e chamadas de funções
+
+-funções.py            # Lógica das funcionalidades do programa
+
+-treinos.txt           # Armazena os treinos cadastrados
+
+-metas.txt             # Armazena as metas inseridas
+
+-README.md             # Documentação do projeto
 
 📄 Licença
 Este projeto é disponibilizado exclusivamente para fins de aprendizado, uso técnico ou acadêmico.
