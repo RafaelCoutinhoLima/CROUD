@@ -45,13 +45,9 @@ Editar
 
 📁 Estrutura de Arquivos
 -main.py               # Script principal com o menu e chamadas de funções
-
 -funções.py            # Lógica das funcionalidades do programa
-
 -treinos.txt           # Armazena os treinos cadastrados
-
 -metas.txt             # Armazena as metas inseridas
-
 -README.md             # Documentação do projeto
 
 📄 Licença
